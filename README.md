@@ -8,13 +8,13 @@ Quick library to extract pause lengths from audio files.
 
 I'm assuming you are running this on a Mac computer (this is the only operating system tested).
 
-First, make sure you have installed Python3, FFmpeg, and SoX via [Homebrew](https://brew.sh/).
+First, make sure you have installed Python3, FFmpeg, and SoX via [Homebrew](https://brew.sh/):
 
 ```
 brew install python3 sox ffmpeg
 ```
 
-Now, clone the repository and install all require dependencies.
+Now, clone the repository and install all require dependencies:
 
 ```
 git clone git@github.com:jim-schwoebel/pauses.git
