@@ -2,7 +2,7 @@
 
 Quick library to extract pause lengths from audio files. 
 
-![](https://gph.to/2CJRn76)
+![](https://media.giphy.com/media/l0HlKrB02QY0f1mbm/giphy.gif)
 
 ## how to get started
 
