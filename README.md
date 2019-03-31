@@ -23,12 +23,13 @@ pip3 install -r requirements.txt
 ```
 
 ## use cases 
-### if you want to calculate pauses in the ./data folder.
-After this, you can run the script in the terminal with:
+### if you want to process all audio files in the ./data folder 
+
+Run the script in the terminal with:
 ```
 python3 extract_pauselength.py n y
 ```
-### recording files and calculating pauses in real-time
+### recording voice files and calculating pauses in real-time
 
 If you want to record a file you can do this by: 
 ```
