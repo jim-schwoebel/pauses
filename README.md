@@ -2,6 +2,8 @@
 
 Quick library to extract pause lengths from audio files. 
 
+![](https://gph.to/2CJRn76)
+
 ## how to get started
 
 I have a readme in the doc, but I'd suggest if you use this to use a mac computer and install all dependencies by going into the folder (in terminal) and then type:
