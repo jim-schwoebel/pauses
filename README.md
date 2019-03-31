@@ -36,6 +36,6 @@ This is just following the sys.argv[] convention to pass through variables in th
 
 ## how pauses are calculated 
 
-To simplify things a bit, I recorded a few files (attached) that I could use for reference - slow, moderate, moderate-fast, and fast speaking (reading the constitution of the US). 
+To simplify things a bit, I recorded a few files that I could use for reference (in ./data folder) - slow, moderate, moderate-fast, and fast speaking (reading the constitution of the US). 
 
 I then used pydub to segment based on a threshold of 50 milleseconds segments and -32 dBFS (to allow for detection of fast speaking events) as a silence interval. This parameter likely needs to be tuned to the dataset and speaker power, etc. and is likely overfitted to my voice. Nonetheless, this gives a proof-of-concept implementation of how to segment speaking segments from non-speaking segments with a threshold. I then calculated pause length as total duration (seconds) over the counted number of segments (e.g. number of pauses) - to get a sec/pause.
