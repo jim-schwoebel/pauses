@@ -22,12 +22,13 @@ cd pauses
 pip3 install -r requirements.txt
 ```
 
-## if you want to calculate pauses in the ./data folder.
+## use cases 
+### if you want to calculate pauses in the ./data folder.
 After this, you can run the script in the terminal with:
 ```
 python3 extract_pauselength.py n y
 ```
-## recording files and calculating pauses in real-time
+### recording files and calculating pauses in real-time
 
 If you want to record a file you can do this by: 
 ```
@@ -35,7 +36,7 @@ python3 extract_pauselength.py y n
 ```
 After you record it it will display the pause length and create a .JSON file. 
 
-## process audio files in ./data folder and record an audio file in real time together
+### process audio files in ./data folder and record an audio file in real time together
 
 If you want to both record a file (10 seconds) and process all the files in the ./data director you can run 
 
