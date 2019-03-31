@@ -26,22 +26,28 @@ pip3 install -r requirements.txt
 ### if you want to process all audio files in the ./data folder 
 
 Run the script in the terminal with:
+
 ```
 python3 extract_pauselength.py n y
 ```
+
 ### recording voice files and calculating pauses in real-time
 
 If you want to record a file you can do this by: 
+
 ```
 python3 extract_pauselength.py y n
 ```
+
 After you record it it will display the pause length and create a .JSON file. 
 
 ### process audio files in ./data folder and record an audio file in real time together
 
 If you want to both record a file (10 seconds) and process all the files in the ./data director you can run 
 
-```python3 extract_pauselength.py y y```
+```
+python3 extract_pauselength.py y y
+```
 
 This is just following the sys.argv[] convention to pass through variables in the terminal.
 
