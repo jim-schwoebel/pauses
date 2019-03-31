@@ -16,21 +16,11 @@ Then you can create a data folder and put everything in there.
 '''
 
 import os, pocketsphinx, librosa, re, json, shutil
-import speech_recognition as sr_audio
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import sounddevice as sd
 import soundfile as sf 
-
-# transcribe with pocketsphinx (open-source)
-# def transcribe_google(file):
-#     r=sr_audio.Recognizer()
-#     with sr_audio.AudioFile(file) as source:
-#         audio = r.record(source) 
-#     transcript=r.recognize_google()
-#     print('google transcript: '+transcript)
-    
-#     return transcript 
+import sys, datetime
 
 def sync_record(filename, duration, fs, channels):
     print('recording')
@@ -47,7 +37,7 @@ def sorted_aphanumeric(data):
 def remove_silence(input_file, silence_file):
 	sound_file = AudioSegment.from_wav(input_file)
 	audio_chunks = split_on_silence(sound_file, 
-	    # must be silent for at least 100 ms 
+	    # must be silent for at least 50 ms 
 	    min_silence_len=50,
 
 	    # consider it silent if quieter than -16 dBFS
@@ -102,9 +92,8 @@ def extract_pauselength(input_file):
 	silence_file=input_file[0:-4]+'_silence'+input_file[-4:]
 	clean_file=input_file[0:-4]+'_cleaned'+input_file[-4:]
 
-	# clean the audio from ambient background noise 
+	# optionally, clean the audio from ambient background noise 
 	# clean_audio(input_file, clean_file)
-	# transcript=transcribe_google(input_file)
 
 	# remove silence 
 	pause_number=remove_silence(input_file, silence_file)
@@ -127,33 +116,52 @@ def extract_pauselength(input_file):
 	
 	return pause_length
 
+record=sys.argv[1]
+folder=sys.argv[2]
 
-os.chdir('data')
+print(record)
+print(folder)
 
-if input('Would you like to record an audio file? "y" for yes "n" for no.').lower().replace(' ','') == 'y':
-	sync_record('test.wav', 10, 16000, 1)
-
-listdir=os.listdir()
 filelist=list()
+if record == 'y':
+	filename='test-%s.wav'%(str(datetime.datetime.now()))
+	sync_record(filename, 10, 16000, 1)
+	filelist.append(filename)
+	if folder=='y':
+		shutil.move(filename, './data/test.wav')
+	else:
+		pause_length = extract_pauselength(filename)
+		data={'file': filename,
+			  'average pause length (seconds)': pause_length,
+			  }
+		jsonfile=open(filename[0:-4]+'.json','w')
+		json.dump(data,jsonfile)
+		jsonfile.close()
+		print(data)
 
-for i in range(len(listdir)):
-	if listdir[i][-4:] in ['.wav', '.mp3', '.m4a']:
-		if listdir[i][-4:] != '.wav':
-			wavfile=listdir[i][0:-4]+'.wav'
-			os.system('ffmpeg -i %s %s'%(listdir[i], wavfile))
-			os.remove(listdir[i])
-			filelist.append(wavfile)
-		else:
-			filelist.append(listdir[i])
+if folder=='y':
+	os.chdir('data')
+	listdir=os.listdir()
+	
+	for i in range(len(listdir)):
+		if listdir[i][-4:] in ['.wav', '.mp3', '.m4a']:
+			if listdir[i][-4:] != '.wav':
+				wavfile=listdir[i][0:-4]+'.wav'
+				os.system('ffmpeg -i %s %s'%(listdir[i], wavfile))
+				os.remove(listdir[i])
+				filelist.append(wavfile)
+			else:
+				filelist.append(listdir[i])
 
-print(filelist)
+	print(filelist)
 
-for i in range(len(filelist)):
-	pause_length = extract_pauselength(filelist[i])
-	data={'file': filelist[i],
-		  'average pause length (seconds)': pause_length,
-		  }
-	jsonfile=open(filelist[i][0:-4]+'.json','w')
-	json.dump(data,jsonfile)
-	jsonfile.close()
-	print(data)
+	for i in range(len(filelist)):
+		pause_length = extract_pauselength(filelist[i])
+		data={'file': filelist[i],
+			  'average pause length (seconds)': pause_length,
+			  }
+		jsonfile=open(filelist[i][0:-4]+'.json','w')
+		json.dump(data,jsonfile)
+		jsonfile.close()
+		print(data)
+
