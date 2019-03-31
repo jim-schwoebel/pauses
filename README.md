@@ -7,9 +7,9 @@ Quick library to extract pause lengths from audio files.
 I have a readme in the doc, but I'd suggest if you use this to use a mac computer and install all dependencies by going into the folder (in terminal) and then type:
 
 ```
+git clone git@github.com:jim-schwoebel/pauses.git
 cd pauses 
 pip3 install -r requirements.txt
-
 ```
 ## if you want to calculated pauses in the ./data folder.
 After this, you can run the script in the terminal with:
