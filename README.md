@@ -23,6 +23,9 @@ pip3 install -r requirements.txt
 ```
 
 ## use cases 
+
+The extract_pauselength.py script uses sys.argv[] convention to pass through variables in the terminal. For more information on this, check out this [StackOverflow post](https://stackoverflow.com/questions/4117530/sys-argv1-meaning-in-script). 
+
 ### if you want to process all audio files in the ./data folder 
 
 Run the script in the terminal with:
@@ -48,8 +51,6 @@ If you want to both record a file (10 seconds) and process all the files in the 
 ```
 python3 extract_pauselength.py y y
 ```
-
-This is just following the sys.argv[] convention to pass through variables in the terminal.
 
 ## how pauses are calculated 
 
