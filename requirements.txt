@@ -1,0 +1,7 @@
+SpeechRecognition
+pocketsphinx 
+librosa
+shutil 
+pydub
+soundfile
+sounddevice 
