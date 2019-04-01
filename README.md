@@ -4,7 +4,7 @@ Quick library to extract pause lengths from audio files.
 
 ![](https://media.giphy.com/media/l0HlKrB02QY0f1mbm/giphy.gif)
 
-## how to get started
+## How to get started
 
 I'm assuming you are running this on a Mac computer (this is the only operating system tested).
 
@@ -22,11 +22,11 @@ cd pauses
 pip3 install -r requirements.txt
 ```
 
-## Technique #1 - Thresholding 
+## Technique #1 - thresholding 
 
 The extract_pauselength.py script uses sys.argv[] convention to pass through variables in the terminal. For more information on this, check out this [StackOverflow post](https://stackoverflow.com/questions/4117530/sys-argv1-meaning-in-script).
 
-### Assumptions 
+### assumptions 
 
 To simplify things a bit, I recorded a few files that I could use for reference (in ./data folder) - slow, moderate, moderate-fast, and fast speaking (reading the constitution of the US). 
 
@@ -58,7 +58,7 @@ If you want to both record a file (10 seconds) and process all the files in the 
 python3 extract_pauselength.py y y
 ```
 
-## Technique #2 - Machine Learning Classification 
+## Technique #2 - machine learning classification 
 
 Another technique that can be used is to train a machine learning model to detect pause lengths. In this case, I trained a quick machine learning model from 5-6 files separating the files into 20 millisecond windows and labeling each one as a 'pause' or a 'speech' event. I used the [train_audioTPOT.py script](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_4_modeling/train_audioTPOT.py) found in the voicebook repository with the [librosa feature embedding](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_3_featurization/librosa_features.py) (librosa_features.py). The model achieves around 91.22807017543859% accuracy with an optimized SVM model. 
 
