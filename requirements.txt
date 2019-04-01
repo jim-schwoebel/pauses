@@ -4,3 +4,4 @@ librosa
 pydub
 soundfile
 sounddevice 
+tpot
