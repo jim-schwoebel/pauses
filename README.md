@@ -58,6 +58,17 @@ To simplify things a bit, I recorded a few files that I could use for reference 
 
 I then used pydub to segment based on a threshold of 50 milleseconds segments and -32 dBFS (to allow for detection of fast speaking events) as a silence interval. This parameter likely needs to be tuned to the dataset and speaker power, etc. and is likely overfitted to my voice. Nonetheless, this gives a proof-of-concept implementation of how to segment speaking segments from non-speaking segments with a threshold. I then calculated pause length as total duration (seconds) over the counted number of segments (e.g. number of pauses) - to get a sec/pause.
 
+## another technique
+
+```
+Warning: xgboost.XGBClassifier is not available and will not be used by TPOT.
+Generation 1 - Current best internal CV score: 0.9524064171122995               
+Generation 2 - Current best internal CV score: 0.9524064171122995               
+Generation 3 - Current best internal CV score: 0.9524064171122995               
+Generation 4 - Current best internal CV score: 0.9527629233511586               
+Generation 5 - Current best internal CV score: 0.9527629233511586 
+```
+
 ## limitations
 
 This script is limited to low-noise environments. If there is a lot of background noise in your file, I'd first suggest cleaning them and removing noise (e.g. with SoX) before using this script to calculate pause lengths.
