@@ -22,9 +22,15 @@ cd pauses
 pip3 install -r requirements.txt
 ```
 
-## use cases 
+## Technique #1 - Thresholding 
 
-The extract_pauselength.py script uses sys.argv[] convention to pass through variables in the terminal. For more information on this, check out this [StackOverflow post](https://stackoverflow.com/questions/4117530/sys-argv1-meaning-in-script). 
+The extract_pauselength.py script uses sys.argv[] convention to pass through variables in the terminal. For more information on this, check out this [StackOverflow post](https://stackoverflow.com/questions/4117530/sys-argv1-meaning-in-script).
+
+### Assumptions 
+
+To simplify things a bit, I recorded a few files that I could use for reference (in ./data folder) - slow, moderate, moderate-fast, and fast speaking (reading the constitution of the US). 
+
+I then used pydub to segment based on a threshold of 50 milleseconds segments and -32 dBFS (to allow for detection of fast speaking events) as a silence interval. This parameter likely needs to be tuned to the dataset and speaker power, etc. and is likely overfitted to my voice. Nonetheless, this gives a proof-of-concept implementation of how to segment speaking segments from non-speaking segments with a threshold. I then calculated pause length as total duration (seconds) over the counted number of segments (e.g. number of pauses) - to get a sec/pause.
 
 ### if you want to process all audio files in the ./data folder 
 
@@ -52,13 +58,7 @@ If you want to both record a file (10 seconds) and process all the files in the 
 python3 extract_pauselength.py y y
 ```
 
-## how pauses are calculated 
-
-To simplify things a bit, I recorded a few files that I could use for reference (in ./data folder) - slow, moderate, moderate-fast, and fast speaking (reading the constitution of the US). 
-
-I then used pydub to segment based on a threshold of 50 milleseconds segments and -32 dBFS (to allow for detection of fast speaking events) as a silence interval. This parameter likely needs to be tuned to the dataset and speaker power, etc. and is likely overfitted to my voice. Nonetheless, this gives a proof-of-concept implementation of how to segment speaking segments from non-speaking segments with a threshold. I then calculated pause length as total duration (seconds) over the counted number of segments (e.g. number of pauses) - to get a sec/pause.
-
-## another technique
+## Technique #2 - Machine Learning Classification 
 
 Another technique that can be used is to train a machine learning model to detect pause lengths. In this case, I trained a quick machine learning model from 5-6 files separating the files into 20 millisecond windows and labeling each one as a 'pause' or a 'speech' event. I used the [train_audioTPOT.py script](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_4_modeling/train_audioTPOT.py) found in the voicebook repository with the [librosa feature embedding](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_3_featurization/librosa_features.py) (librosa_features.py). The model achieves around 91.22807017543859% accuracy with an optimized SVM model. 
 
