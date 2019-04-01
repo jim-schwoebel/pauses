@@ -197,17 +197,20 @@ for i in range(len(wavfiles)):
         class_list=list()
 
         for j in range(len(filelist)):
-            features=np.array(featurize(filelist[j]))
-            print(features)
-            features=features.reshape(1,-1)
-            output=str(model.predict(features)[0])
+            try:
+                features=np.array(featurize(filelist[j]))
+                print(features)
+                features=features.reshape(1,-1)
+                output=str(model.predict(features)[0])
 
-            if float(output)==0:
-                classname=name1
-            else:
-                classname=name2
+                if float(output)==0:
+                    classname=name1
+                else:
+                    classname=name2
 
-            class_list.append(classname)
+                class_list.append(classname)
+            except:
+                pass 
 
         os.chdir(load_dir)
 
@@ -238,18 +241,31 @@ for i in range(len(wavfiles)):
             except:
                 pass 
 
-        pause_stats=stats(pause_lengths_array)
-        # calculate statistical features of pause lengths
-        total_pause_lengths=class_list.count('silence')*0.20
+        try:
+            pause_stats=stats(pause_lengths_array)
+            # calculate statistical features of pause lengths
+            total_pause_lengths=class_list.count('silence')*0.20
 
-        data= {'filename': filename,
-               'total_length': total_pause_lengths,
-               'mean':float(pause_stats[0]),
-               'std':float(pause_stats[1]),
-               'max_value':float(pause_stats[2]),
-               'min_pause':float(pause_stats[3]),
-               'median':float(pause_stats[4]),
-               }
+            data= {'filename': filename,
+                   'total_length': total_pause_lengths,
+                   'mean':float(pause_stats[0]),
+                   'std':float(pause_stats[1]),
+                   'max_value':float(pause_stats[2]),
+                   'min_pause':float(pause_stats[3]),
+                   'median':float(pause_stats[4]),
+                   }
+        except:
+            # calculate statistical features of pause lengths
+            total_pause_lengths=0
+
+            data= {'filename': filename,
+                   'total_length': total_pause_lengths,
+                   'mean':0,
+                   'std':0,
+                   'max_value':0,
+                   'min_pause':0,
+                   'median':0,
+                   }  
 
         jsonfilename=filename[0:-4]+'.json'
 
