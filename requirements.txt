@@ -5,3 +5,4 @@ pydub
 soundfile
 sounddevice 
 tpot
+numpy
