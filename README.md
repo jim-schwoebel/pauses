@@ -62,7 +62,14 @@ I then used pydub to segment based on a threshold of 50 milleseconds segments an
 
 Another technique that can be used is to train a machine learning model to detect pause lengths. In this case, I trained a quick machine learning model from 5-6 files separating the files into 20 millisecond windows and labeling each one as a 'pause' or a 'speech' event. I used the train_audioTPOT.py script found in the voicebook repository with the librosa feature embedding (librosa_features.py). The model achieves around 91.22807017543859% accuracy with an optimized SVM model. 
 
-To run this script, you must first put some files in the load_dir folder when you clone the repository (e.g. 'fast.wav'). The files are then spliced into 20 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
+To run this script, you must first put some files in the load_dir folder when you clone the repository (e.g. 'fast.wav'). 
+
+Next, run the script:
+```
+python3 extract_pauselengths2.py
+```
+
+The audio files in ./load_dir are then spliced into 20 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
 
 ```
 {"filename": "fast.wav", "total_length": 1.0, "mean": 0.4, "std": 0.20000000000000007, "max_value": 0.6000000000000001, "min_pause": 0.2, "median": 0.4}
