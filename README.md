@@ -66,7 +66,7 @@ To run this script, you must first put some files in the load_dir folder when yo
 
 Next, run the script:
 ```
-python3 extract_pauselengths2.py
+python3 extract_pauselengths_2.py
 ```
 
 The audio files in ./load_dir are then spliced into 20 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
