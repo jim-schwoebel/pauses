@@ -1,0 +1,1 @@
+{"model name": "speech_silence_tpotclassifier.pickle", "accuracy": 0.9122807017543859, "model type": "TPOTclassification_exported_pipeline = LinearSVC(C=15.0, dual=False, loss=\"squared_hinge\", penalty=\"l2\", tol=0.001)\n\n"}
