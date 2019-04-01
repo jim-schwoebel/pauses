@@ -77,11 +77,11 @@ The audio files in ./load_dir are then spliced into 20 millisecond segments and 
 
 As you can see, you get a bit more information here. Note this was a proof-of-concept and likely needs to be augmetned with other datasets for it to work robustly across speakers. 
 
-## limitations
+## Limitations
 
 Both scripts are limited to low-noise environments. If there is a lot of background noise in your file, I'd first suggest cleaning them and removing noise (e.g. with SoX) before using this script to calculate pause lengths.
 
-## additional reading
+## Additional reading
 * [pydub](https://github.com/jiaaro/pydub)
 * [sox](http://sox.sourceforge.net/)
 * [FFmpeg](https://ffmpeg.org/)
