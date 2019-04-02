@@ -81,6 +81,9 @@ As you can see, you get a bit more information here. Note this was a proof-of-co
 
 Both scripts are limited to low-noise environments. If there is a lot of background noise in your file, I'd first suggest cleaning them and removing noise (e.g. with SoX) before using this script to calculate pause lengths.
 
+## License
+This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). 
+
 ## Additional reading
 * [pydub](https://github.com/jiaaro/pydub)
 * [sox](http://sox.sourceforge.net/)
