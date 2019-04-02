@@ -1,31 +1,30 @@
 '''
 ================================================ 
-##            VOICEBOOK REPOSITORY            ##      
+          PAUSES REPOSITORY                     
 ================================================ 
 
-repository name: voicebook 
+repository name: pauses 
 repository version: 1.0 
-repository link: https://github.com/jim-schwoebel/voicebook 
+repository link: https://github.com/jim-schwoebel/pauses 
 author: Jim Schwoebel 
 author contact: js@neurolex.co 
-description: a book and repo to get you started programming voice applications in Python - 10 chapters and 200+ scripts. 
+description: quick library to extract pause lengths from audio files. 
 license category: opensource 
 license: Apache 2.0 license 
 organization name: NeuroLex Laboratories, Inc. 
 location: Seattle, WA 
 website: https://neurolex.ai 
-release date: 2018-09-28 
+release date: 2019-04-01 
 
-This code (voicebook) is hereby released under a Apache 2.0 license license. 
+This code (pauses) is hereby released under a Apache 2.0 license license. 
 
 For more information, check out the license terms below. 
 
 ================================================ 
-##               LICENSE TERMS                ##      
+                LICENSE TERMS                      
 ================================================ 
 
-Copyright 2018 NeuroLex Laboratories, Inc. 
-
+Copyright 2019 NeuroLex Laboratories, Inc. 
 Licensed under the Apache License, Version 2.0 (the "License"); 
 you may not use this file except in compliance with the License. 
 You may obtain a copy of the License at 
@@ -39,7 +38,7 @@ See the License for the specific language governing permissions and
 limitations under the License. 
 
 ================================================ 
-##               SERVICE STATEMENT            ##        
+                SERVICE STATEMENT                    
 ================================================ 
 
 If you are using the code written for a larger project, we are 
@@ -51,13 +50,7 @@ model speech and text data.
 We have helped a wide variety of enterprises - small businesses, 
 researchers, enterprises, and/or independent developers. 
 
-If you would like to work with us let us know @ js@neurolex.co. 
-
-================================================ 
-##              LOAD_AUDIOTPOT.PY             ##    
-================================================ 
-
-Fingerprint audio models in a streaming folder. 
+If you would like to work with us let us know @ develop@neurolex.co. 
 '''
 
 import librosa, pickle, getpass, time, shutil
