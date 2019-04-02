@@ -37,7 +37,7 @@ I then used pydub to segment based on a threshold of 50 milleseconds segments an
 Run the script in the terminal with:
 
 ```
-python3 extract_pauselength.py n y
+python3 extract_pauses_1.py n y
 ```
 
 ### recording voice files and calculating pauses in real-time
@@ -45,7 +45,7 @@ python3 extract_pauselength.py n y
 If you want to record a file you can do this by: 
 
 ```
-python3 extract_pauselength.py y n
+python3 extract_pauses_1.py y n
 ```
 
 After you record it it will display the pause length and create a .JSON file. 
@@ -55,7 +55,7 @@ After you record it it will display the pause length and create a .JSON file.
 If you want to both record a file (10 seconds) and process all the files in the ./data director you can run 
 
 ```
-python3 extract_pauselength.py y y
+python3 extract_pauses_1.py y y
 ```
 
 ## Technique #2 - machine learning classification 
@@ -66,7 +66,7 @@ To run this script, you must first put some files in the load_dir folder when yo
 
 Next, run the script:
 ```
-python3 extract_pauselengths_2.py
+python3 extract_pauses_2.py
 ```
 
 The audio files in ./load_dir are then spliced into 20 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
