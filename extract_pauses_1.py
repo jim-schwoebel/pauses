@@ -185,7 +185,7 @@ if record == 'y':
 	sync_record(filename, 10, 16000, 1)
 	filelist.append(filename)
 	if folder=='y':
-		shutil.move(filename, './data/test.wav')
+		shutil.move(os.getcwd()+'/'+filename, './data/'+filename)
 	else:
 		pause_length = extract_pauselength(filename)
 		data={'file': filename,
