@@ -1,6 +1,6 @@
 # pauses
 
-Quick library to extract pause lengths from audio files. 
+Quick library to extract pause length features from audio files. 
 
 ![](https://media.giphy.com/media/l0HlKrB02QY0f1mbm/giphy.gif)
 
