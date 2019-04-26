@@ -69,7 +69,7 @@ Next, run the script:
 python3 extract_pauses_2.py
 ```
 
-The audio files in ./load_dir are then spliced into 20 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
+The audio files in ./load_dir are then spliced into 200 millisecond segments and classified as silence or speech events. What results is a file in the ./load_dir that corresponds with the speech file (e.g. fast.wav --> fast.json) with the following information:
 
 ```
 {"filename": "fast.wav", "total_length": 1.0, "mean": 0.4, "std": 0.20000000000000007, "max_value": 0.6000000000000001, "min_pause": 0.2, "median": 0.4}
