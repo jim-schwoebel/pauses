@@ -60,7 +60,7 @@ python3 extract_pauses_1.py y y
 
 ## Technique #2 - machine learning classification 
 
-Another technique that can be used is to train a machine learning model to detect pause lengths. In this case, I trained a quick machine learning model from 5-6 files separating the files into 20 millisecond windows and labeling each one as a 'pause' or a 'speech' event. I used the [train_audioTPOT.py script](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_4_modeling/train_audioTPOT.py) found in the voicebook repository with the [librosa feature embedding](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_3_featurization/librosa_features.py) (librosa_features.py). The model achieves around 91.22807017543859% accuracy with an optimized SVM model. 
+Another technique that can be used is to train a machine learning model to detect pause lengths. In this case, I trained a quick machine learning model from 5-6 files separating the files into 200 millisecond windows and labeling each one as a 'pause' or a 'speech' event. I used the [train_audioTPOT.py script](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_4_modeling/train_audioTPOT.py) found in the voicebook repository with the [librosa feature embedding](https://github.com/jim-schwoebel/voicebook/blob/master/chapter_3_featurization/librosa_features.py) (librosa_features.py). The model achieves around 91.22807017543859% accuracy with an optimized SVM model. 
 
 To run this script, you must first put some files in the load_dir folder when you clone the repository (e.g. 'fast.wav'). 
 
