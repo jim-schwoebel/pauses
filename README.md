@@ -81,6 +81,12 @@ As you can see, you get a bit more information here. Note this was a proof-of-co
 
 Both scripts are limited to low-noise environments. If there is a lot of background noise in your file, I'd first suggest cleaning them and removing noise (e.g. with SoX) before using this script to calculate pause lengths.
 
+## Feedback
+Any feedback on the book or this repository is greatly appreciated. 
+* If you find something that is missing or doesn't work, please consider opening a [GitHub issue](https://github.com/jim-schwoebel/pauses/issues).
+* If you'd like to be mentored by someone on our team, check out the [Innovation Fellows Program](http://neurolex.ai/research).
+* If you want to talk to me directly, please send me an email @ js@neurolex.co. 
+
 ## License
 This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). 
 
